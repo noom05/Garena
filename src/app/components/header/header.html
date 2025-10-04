@@ -1,0 +1,44 @@
+<header class="app-header">
+  <div class="header-content">
+    <div class="logo">
+      <img src="/assets/images/garena.png" alt="Garena" class="logo" />
+      <div class="logo-section">
+        <div class="brand-name">ศูนย์เติมเกมอย่างเป็นทางการ</div>
+      </div>
+    </div>
+
+    <div class="user-section">
+      <ng-container *ngIf="auth.isLoggedIn(); else guest">
+        <span class="welcome-text">
+          <!-- ยินดีต้อนรับ {{ auth.getCurrentUser()?.username }} -->
+        </span>
+
+        <button mat-stroked-button color="primary" class="btn-games" (click)="goToGames()">
+          <mat-icon>sports_esports</mat-icon>
+          รายการเกม
+        </button>
+
+        <!-- ปุ่มดูโปรไฟล์ -->
+        <button mat-stroked-button color="accent" class="btn-profile" (click)="goToProfile()">
+          <mat-icon>account_circle</mat-icon>
+          โปรไฟล์ของฉัน
+        </button>
+        <button mat-raised-button color="warn" class="btn-logout" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          ออกจากระบบ
+        </button>
+      </ng-container>
+
+      <ng-template #guest>
+        <button mat-raised-button color="primary" class="btn-login" (click)="login()">
+          <mat-icon>login</mat-icon>
+          เข้าสู่ระบบ
+        </button>
+        <button mat-raised-button color="accent" class="btn-register" (click)="register()">
+          <mat-icon>person_add</mat-icon>
+          สมัครสมาชิก
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,10 @@
+<div class="profile-card" *ngIf="user">
+  <img [src]="'/assets/images/' + user.image" alt="รูปโปรไฟล์" class="profile-image" />
+  <h2>{{ user.fullname }}</h2>
+  <p><strong>อีเมล:</strong> {{ user.email }}</p>
+  <p><strong>บทบาท:</strong> {{ user.role === 'admin' ? 'ผู้ดูแลระบบ' : 'สมาชิกทั่วไป' }}</p>
+</div>
+
+<div *ngIf="!user" class="no-user">
+  <p>ไม่พบข้อมูลผู้ใช้ กรุณาเข้าสู่ระบบก่อน</p>
+</div>

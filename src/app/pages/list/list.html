@@ -1,0 +1,11 @@
+<h2 class="section-title">
+  เกมแนะนำ, สวัสดีคุณ <span *ngIf="fullname"> {{ fullname }}</span>
+</h2>
+
+<div class="game-list">
+  <div *ngFor="let game of games" class="game-card">
+    <img [src]="game.image" alt="{{ game.name }}" />
+    <h2>{{ game.name }}</h2>
+    <p>{{ game.details }}</p>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<mat-card class="login-card">
+  <div class="login-logo">
+    <img src="/assets/images/garena.png" alt="Garena Logo" />
+  </div>
+
+  <div style="text-align: center; margin-bottom: 18px">
+    <div style="font-size: 1.4rem; font-weight: bold">ระบบเติมเกมการีน่า</div>
+    <div style="margin-top: 14px; font-size: 1.1rem">
+      เข้าสู่ระบบ&nbsp;&nbsp;สมัครสมาชิก
+    </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" autocomplete="off">
+  <mat-form-field appearance="outline" style="width: 100%">
+  <mat-label>อีเมล</mat-label>
+  <input matInput type="email" [formControl]="email" required />
+</mat-form-field>
+
+<mat-form-field appearance="outline" style="width: 100%">
+  <mat-label>รหัสผ่าน</mat-label>
+  <input matInput type="password" [formControl]="password" required />
+</mat-form-field>
+
+
+  <div style="color: red; text-align: center" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <mat-card-actions style="display: flex; flex-direction: column; gap: 12px">
+    <button mat-raised-button color="primary" type="submit">
+      <mat-icon>login</mat-icon>
+      เข้าสู่ระบบ
+    </button>
+
+    <button mat-raised-button color="accent" type="button" (click)="register()">
+      <mat-icon>person_add</mat-icon>
+      สมัครสมาชิก
+    </button>
+
+    <button mat-stroked-button type="button" (click)="goHome()">
+      <mat-icon>home</mat-icon>
+      กลับหน้าหลัก
+    </button>
+  </mat-card-actions>
+</form>
+
+</mat-card>
